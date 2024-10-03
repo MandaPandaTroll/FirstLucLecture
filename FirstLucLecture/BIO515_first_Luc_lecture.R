@@ -8,7 +8,6 @@
   #garbage collection to free up memory
   gc()
 }
-"owo"
 
 #installing stuff
 {
