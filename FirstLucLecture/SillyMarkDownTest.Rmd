@@ -2,7 +2,9 @@
 title: "sillyMarkDownTest"
 author: "Tabacwoman"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -23,12 +25,41 @@ summary(cars)
 
 You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
+```{r pressure, echo=TRUE}
 plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
+Now we add ggplot
 
+```{r ggplot, echo=TRUE}
+library(ggplot2)
+```
 
 ## I'm a goofy goober, yeah!
+
+### silly plot
+
+```{r scobius.doobus.plot, echo=FALSE}
+scobius_doobus.df <- data.frame(x = 1:10000, y = rnorm(10000, 0, 10))
+
+scobius_doobus.plot = ggplot(scobius_doobus.df, aes(x = x, y = y))+ geom_point(size = 0.1)
+plot(scobius_doobus.plot)
+```
+
+### silly plot 2 return of the wonky wazoo
+
+```{r wonky.wazoo, echo=FALSE}
+spicyFunc <- function(x){
+  return(x + x^1.0002*rnorm(1,0,1))
+}
+wonky.wazoo.df <- data.frame(x = 1:10000, y = 1:10000)
+
+for(i in 1:10000){
+  wonky.wazoo.df$y[i] <- spicyFunc(wonky.wazoo.df$x[i])
+}
+
+wonky_wazoo <- ggplot(wonky.wazoo.df, aes(x = x, y = y))+ geom_point(size = 0.1) + ggtitle("Wonky Wazoo")
+plot(wonky_wazoo)
+```

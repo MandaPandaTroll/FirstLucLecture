@@ -36,3 +36,7 @@ file.edit("Tidyverse_test.R")
 
 
   ## Scobio dobio 
+scobius_doobus.df <- data.frame(x = 1:10000, y = rnorm(10000, 0, 10))
+
+scobius_doobus.plot = ggplot(scobius_doobus.df, aes(x = x, y = y))+ geom_point()
+plot(scobius_doobus.plot)
